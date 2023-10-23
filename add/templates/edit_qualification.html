@@ -1,0 +1,23 @@
+{% extends 'baseblg.html' %}
+{% block content %}
+
+<div class="container">
+    <h4>Edit Qualification</h4>
+    <div class="row">
+        <div class="col-sm-8">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div> 
+</div>
+ <a href="#" class="btn-back" id="backButton" style="margin-left: 25%;">Back</a>
+<script>
+    document.getElementById('backButton').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.history.back();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,9 @@
+<form method="post" action="{% url 'add_education' %}">
+    {% csrf_token %}
+    <input type="text" name="school" placeholder="School">
+    <input type="text" name="degree" placeholder="Degree">
+    <input type="text" name="major" placeholder="Major">
+    {% comment %} <input type="text" name="start_date" placeholder="Start Date">
+    <input type="text" name="end_date" placeholder="End Date"> {% endcomment %}
+    <button type="submit">Save</button>
+</form>

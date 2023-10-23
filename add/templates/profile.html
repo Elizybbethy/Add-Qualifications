@@ -1,0 +1,7 @@
+{% for education in educations %}
+    <div class="education-item">
+        <h3>{{ education.school }}</h3>
+        <p>{{ education.degree }} in {{ education.major }}</p>
+        {% comment %} <p>{{ education.start_date }} - {% if education.end_date %}{{ education.end_date }}{% else %}Present{% endif %}</p> {% endcomment %}
+    </div>
+{% endfor %}

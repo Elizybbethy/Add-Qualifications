@@ -1,0 +1,28 @@
+{% extends 'baseblg.html' %}
+{% block content %}
+
+<div class="container">
+    <h4>Add Education</h4>
+    <div class="row">
+        <div class="col-sm-8">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% comment %} {{ form.media }} {% endcomment %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Add Educ</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <h4 class="text-center"><ul>List of documents</ul></h4>
+            {% for qualification in qualifications %}
+                {{qualification.id}} : {{qualification.degree}}</a>
+                <a href="{% url 'qualification' qualification.id %}">
+                    <button type="submit" class="btn btn-primary" >View</button>
+                </a>
+                
+                <hr>
+            {% endfor %}
+        </div>
+    </div> 
+</div>
+{% endblock %}

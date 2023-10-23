@@ -1,0 +1,28 @@
+{% extends 'baseblg.html'%}
+{% block content %}
+<h3 class="text-center">Qualification Details</h3>
+<div class="d-flex justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            {% comment %} <h6>Qulification No: {{ qualification.id }}</h6> {% endcomment %}
+            <h6>College:<strong>{{ qualification.school_name }}</strong> </h6>
+            <h6>Degree: <strong>{{ qualification.degree }}</strong> </h6>
+            <h6>Field of Study: <strong>{{ qualification.field_of_study }}</strong> </h6>
+            <h6>Start Date:<strong> {{ qualification.start_date }}</strong> </h6>
+            <h6>End Date: <strong>{{ qualification.end_date }}</strong> </h6>
+            <h6>CGPA: <strong>{{ qualification.grade }}</strong> </h6>
+            <h6>Experiences: <strong>{{ qualification.activities_and_societies }}</strong> </h6>
+            <h6>Description: <strong>{{ qualification.description }}</strong> </h6>
+            <h6>Attached Document: <a href="{{ qualification.my_file.url }}">Download</h6>
+        </div>
+        <a href="{% url 'edit_qualification' pk=qualification.pk %}"  class="btn btn-primary">Edit</a>
+    </div>
+</div>
+ <a href="#" class="btn-back" id="backButton" style="margin-left: 25%;">Back</a>
+<script>
+    document.getElementById('backButton').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.history.back(); 
+    });
+</script>
+{% endblock %}
