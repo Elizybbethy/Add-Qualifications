@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Education
-from .forms import EducationForm
+from .models import Education, Document
+from .forms import EducationForm, DocumentForm
 from django.contrib.auth.decorators import login_required
 from django.views import View
 
@@ -57,3 +57,20 @@ class EditEducationView(View):
             return render(request, 'edit_qualification.html', {'qualification': qualification, 'form':form, })
 
 
+class DocumentView(View):
+    def get(self, request):
+        form =DocumentForm()
+        documents = Document.objects.all()
+        return render(request, 'professional_docs.html', {'documents':documents, 'form':form})
+    
+    def post(self, request):
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'documents.html',{'form':form})
+        
+        
+class DocumentDetailsView(View):
+    def get(self, request, pk):
+        documents = Education.objects.get(pk=pk)
+        return render(request, 'qualifications.html', {'documents':documents})

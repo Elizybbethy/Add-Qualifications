@@ -1,5 +1,5 @@
 from django import forms
-from .models import Education
+from .models import Document, Education
 
 STATUS_CHOICE =(
     ('junior','junior'),
@@ -35,3 +35,8 @@ class EducationForm(forms.ModelForm):
             
         }
         
+class DocumentForm(forms.ModelForm):
+    
+    class Meta:
+        model = Document
+        fields = ['name', 'my_doc']

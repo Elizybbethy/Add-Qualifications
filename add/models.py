@@ -22,3 +22,9 @@ class Education(models.Model):
     def __str__(self):
         return self.school_name
     
+class Document(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    my_doc = models.FileField(null=True, blank=True, upload_to='documents/' )
+    
+    def __str__(self):
+        return self.name

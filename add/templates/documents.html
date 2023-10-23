@@ -1,0 +1,13 @@
+{% extends 'baseblg.html'%}
+{% block content %}
+<div class="document-box">
+    <div class="document-name">
+        Dcument Name: {{document.name}}
+    </div>
+    <div class="attached-document">
+        <h6>Attached Document: <a href="{% url 'document' documents.id %}">
+            {% comment %} <a href="{{ document.my_file.url }}"> {% endcomment %}
+                Download</h6>
+    </div>
+</div>
+{% endblock %}

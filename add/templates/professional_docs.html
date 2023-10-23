@@ -1,0 +1,30 @@
+{% extends 'baseblg.html' %}
+{% block content %}
+
+
+
+
+<div class="container">
+    <h4>Professional Memberships</h4>
+    <div class="row">
+        <div class="col-sm-8">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}<br>
+                <button type="submit" class="btn btn-primary">Add Membership</button>
+            </form>
+        </div>
+       <div class="col-sm-4">
+            <div class="card">
+                <h4 class="text-center">Added Memberships</h4><br>
+                {% for document in documents %}
+                    <div class="card-body">
+                    <h5>{{ document.name }}: <a href="{{ document.my_doc.url }}" >View Attached</a> </h5>
+                    <hr>
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </div> 
+</div>
+{% endblock %}
